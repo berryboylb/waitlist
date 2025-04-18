@@ -171,6 +171,8 @@ const ParallaxCards = () => {
                     <Card className="overflow-hidden shadow-xl pt-0 h-full">
                       <div className="relative">
                         <Image
+                          height={100}
+                          width={100}
                           src={item.image || "/placeholder.svg"}
                           alt={item.title}
                           className="w-full aspect-video object-cover"
