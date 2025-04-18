@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "./ui/button";
-import { FaFacebook } from "react-icons/fa";
+// import { FaFacebook } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { LuInstagram } from "react-icons/lu";
 import { toast } from "sonner";
@@ -78,20 +78,20 @@ const NewsletterSection = () => {
               Follow Us
             </h3>
             <div className="flex flex-col gap-4">
-              <a
+              {/* <a
                 href="#"
                 className="text-black hover:text-primary transition-colors flex gap-4 items-center font-[family-name:var(--font-transforma-sans)]"
               >
                 <FaFacebook size={20} /> <span>Facebook</span>
-              </a>
+              </a> */}
               <a
-                href="#"
+                href="https://www.instagram.com/ticketeur"
                 className="text-black hover:text-primary transition-colors flex gap-4 items-center font-[family-name:var(--font-transforma-sans)]"
               >
                 <LuInstagram size={20} /> <span>Instagram</span>
               </a>
               <a
-                href="#"
+                href="https://x.com/get_ticketeur"
                 className="text-black hover:text-primary transition-colors flex gap-4 items-center font-[family-name:var(--font-transforma-sans)]"
               >
                 <FaXTwitter size={20} /> <span>X</span>

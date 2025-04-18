@@ -1,85 +1,101 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState } from "react"
-import { cn } from "@/lib/utils"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import Image from "next/image"
+import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 interface CardData {
-  id: number
-  title: string
-  description: string
-  image: string
-  label?: string
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  label?: string;
 }
 
 const cardsData: CardData[] = [
-  {
-    id: 1,
-    title: "Your Ultimate Event Companion",
-    description:
-      "Ticketeur streamlines the entire event experience—from effortlessly buying tickets and smoothly organizing events, to discovering exciting local happenings.",
-    image: "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800",
-    label: "Featured",
-  },
+  // {
+  //   id: 1,
+  //   title: "Your Ultimate Event Companion",
+  //   description:
+  //     "Ticketeur streamlines the entire event experience—from effortlessly buying tickets and smoothly organizing events, to discovering exciting local happenings.",
+  //   image:
+  //     "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800",
+  //   label: "Featured",
+  // },
   {
     id: 2,
     title: "Buy Tickets with Ease",
     description:
       "Forget the stress of complicated bookings—get your tickets securely and instantly from anywhere at any time.",
-    image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
+    image:
+      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
     label: "New",
   },
   {
     id: 3,
     title: "Manage Your Events",
-    description: "Create, promote, and manage your events with powerful tools designed for organizers of all sizes.",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800",
+    description:
+      "Create, promote, and manage your events with powerful tools designed for organizers of all sizes.",
+    image:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800",
     label: "Popular",
   },
   {
     id: 4,
     title: "Discover Local Events",
-    description: "Find exciting events happening near you with personalized recommendations based on your interests.",
-    image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
+    description:
+      "Find exciting events happening near you with personalized recommendations based on your interests.",
+    image:
+      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
     label: "Trending",
   },
   {
     id: 5,
+    title: "Manage Your Events",
+    description:
+      "Create, promote, and manage your events with powerful tools designed for organizers of all sizes.",
+    image:
+      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800",
+    label: "Popular",
+  },
+  {
+    id: 6,
     title: "Seamless Check-in Experience",
     description:
       "Skip the lines with digital tickets and contactless check-in for a smooth entry to all your favorite events.",
-    image: "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
+    image:
+      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
     label: "Premium",
   },
-]
+];
 
 const ParallaxCards = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const sectionRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   // Initialize GSAP
   useEffect(() => {
-    if (typeof window === "undefined") return
+    if (typeof window === "undefined") return;
 
     // Register ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger)
+    gsap.registerPlugin(ScrollTrigger);
 
     // Clean up any existing ScrollTriggers
-    ScrollTrigger.getAll().forEach((t) => t.kill())
+    ScrollTrigger.getAll().forEach((t) => t.kill());
 
     // Create a timeline
     // const tl = gsap.timeline()
 
     // Set up scroll sections
-    const sections = sectionRefs.current.filter(Boolean)
+    const sections = sectionRefs.current.filter(Boolean);
 
     // Create scroll triggers for each section
     sections.forEach((section, i) => {
-      if (!section) return
+      if (!section) return;
 
       ScrollTrigger.create({
         trigger: section,
@@ -89,28 +105,31 @@ const ParallaxCards = () => {
         onEnterBack: () => setActiveIndex(i),
         // markers: true, // Enable markers for debugging
         id: `section-${i}`,
-      })
-    })
+      });
+    });
 
     // Fallback: Use direct scroll listener if ScrollTrigger fails
     const handleScroll = () => {
       if (ScrollTrigger.getAll().length === 0) {
-        const scrollPosition = window.scrollY
-        const windowHeight = window.innerHeight
-        const totalHeight = document.body.scrollHeight - windowHeight
-        const scrollPercentage = scrollPosition / totalHeight
-        const newIndex = Math.min(Math.floor(scrollPercentage * cardsData.length), cardsData.length - 1)
-        setActiveIndex(newIndex)
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const totalHeight = document.body.scrollHeight - windowHeight;
+        const scrollPercentage = scrollPosition / totalHeight;
+        const newIndex = Math.min(
+          Math.floor(scrollPercentage * cardsData.length),
+          cardsData.length - 1
+        );
+        setActiveIndex(newIndex);
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill())
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [])
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div ref={containerRef} className="relative bg-gray-50 pb-20 lg:pb-0 ">
@@ -120,12 +139,14 @@ const ParallaxCards = () => {
           <div className="grid lg:grid-cols-2 lg:gap-10 relative z-10">
             {/* Text content */}
             <div className="relative h-[300px] md:h-[400px]">
-              {cardsData.map((item, index) => (
+              {/* {cardsData.map((item, index) => (
                 <div
                   key={`text-${item.id}`}
                   className={cn(
                     "absolute top-0 left-0 w-full transition-all duration-500",
-                    activeIndex === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none",
+                    activeIndex === index
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-8 pointer-events-none"
                   )}
                 >
                   <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 font-[family-name:var(--font-trap)]">
@@ -135,7 +156,25 @@ const ParallaxCards = () => {
                     {item.description}
                   </p>
                 </div>
-              ))}
+              ))} */}
+
+              <div
+                key={`text-`}
+                className={cn(
+                  "absolute top-0 left-0 w-full transition-all duration-500",
+                  // activeIndex === index
+                  "opacity-100 translate-y-0"
+                )}
+              >
+                <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-6 font-[family-name:var(--font-trap)]">
+                  Your Ultimate Event Companion
+                </h1>
+                <p className="text-base lg:text-lg text-black font-[family-name:var(--font-transforma-sans)]">
+                  Ticketeur streamlines the entire event experience—from
+                  effortlessly buying tickets and smoothly organizing events, to
+                  discovering exciting local happenings.
+                </p>
+              </div>
             </div>
 
             {/* Stacked cards */}
@@ -143,19 +182,31 @@ const ParallaxCards = () => {
               {cardsData.map((item, index) => {
                 // Calculate stacking effect based on position relative to active card
                 // const isActive = index === activeIndex
-                const isBehindActive = index > activeIndex
-                const isBeforeActive = index < activeIndex
+                const isBehindActive = index > activeIndex;
+                const isBeforeActive = index < activeIndex;
 
                 // Calculate transform values
-                const yOffset = isBehindActive ? (index - activeIndex) * 7 : isBeforeActive ? -100 : 0
-                const xOffset = isBehindActive ? (index - activeIndex) * 2 : 0
-                const rotation = isBehindActive ? (index - activeIndex) * 3 : isBeforeActive ? -8 : 0
+                const yOffset = isBehindActive
+                  ? (index - activeIndex) * 7
+                  : isBeforeActive
+                  ? -100
+                  : 0;
+                const xOffset = isBehindActive ? (index - activeIndex) * 2 : 0;
+                const rotation = isBehindActive
+                  ? (index - activeIndex) * 3
+                  : isBeforeActive
+                  ? -8
+                  : 0;
                 const scale = isBehindActive
                   ? Math.max(0.95 - (index - activeIndex) * 0.05, 0.8)
                   : isBeforeActive
-                    ? 0.95
-                    : 1
-                const opacity = isBehindActive ? Math.max(0.8 - (index - activeIndex) * 0.2, 0) : isBeforeActive ? 0 : 1
+                  ? 0.95
+                  : 1;
+                const opacity = isBehindActive
+                  ? Math.max(0.8 - (index - activeIndex) * 0.2, 0)
+                  : isBeforeActive
+                  ? 0
+                  : 1;
 
                 return (
                   <div
@@ -173,6 +224,7 @@ const ParallaxCards = () => {
                         <Image
                           height={100}
                           width={100}
+                          unoptimized
                           src={item.image || "/placeholder.svg"}
                           alt={item.title}
                           className="w-full aspect-video object-cover"
@@ -192,7 +244,7 @@ const ParallaxCards = () => {
                       </CardContent>
                     </Card>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -212,7 +264,7 @@ const ParallaxCards = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ParallaxCards
+export default ParallaxCards;

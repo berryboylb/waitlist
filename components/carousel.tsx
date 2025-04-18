@@ -83,6 +83,7 @@ const CarouselSection = () => {
               <Image
                 height={100}
                 width={100}
+                unoptimized
                 src={img}
                 alt={`Event ${i}`}
                 className="w-full h-full object-cover"
@@ -99,6 +100,7 @@ const CarouselSection = () => {
               <Image
                 height={100}
                 width={100}
+                unoptimized
                 src={img}
                 alt={`Event ${i}`}
                 className="w-full h-full object-cover"
@@ -123,6 +125,7 @@ const CarouselSection = () => {
                 height={100}
                 width={100}
                 src={img}
+                unoptimized
                 alt={`Event ${i}`}
                 className="w-full h-full object-cover"
               />
@@ -136,8 +139,9 @@ const CarouselSection = () => {
               className="h-64 w-80 rounded-xl overflow-hidden flex-shrink-0"
             >
               <Image
-              height={100}
-              width={100}
+                height={100}
+                width={100}
+                unoptimized
                 src={img}
                 alt={`Event ${i}`}
                 className="w-full h-full object-cover"
