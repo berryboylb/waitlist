@@ -60,7 +60,7 @@ const transforma = localFont({
       weight: "100",
     },
     {
-      path: "./fonts/Transforma_Sans/TransformaSans_Trial-ExtraLight.ttf",
+      path: "./fonts/Transforma_Sans/TransformaSans_Trial-Extralight.ttf",
       style: "normal",
       weight: "200",
     },
