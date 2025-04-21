@@ -8,9 +8,8 @@ import {
 } from "@/lib/utils";
 import { APP_KEYS } from "@/lib/constant";
 import { useRouter, usePathname } from "next/navigation";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
-import { env } from "@/env.mjs";
 
 interface ExtendedAxiosRequestConfig extends InternalAxiosRequestConfig {
   _retry?: boolean;
@@ -33,7 +32,7 @@ const useAuthToken = () => {
     originalRequest: ExtendedAxiosRequestConfig
   ) => {
     try {
-      const url = env.NEXT_PUBLIC_API_URL + "/auth/refresh-token";
+      const url = "https://domain.com" + "/auth/refresh-token";
       const response = await fetch(url, {
         method: "POST",
         headers: {

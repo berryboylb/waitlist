@@ -1,7 +1,7 @@
-import { env } from "@/env.mjs";
+
 
 export const ENDPOINTS = {
-  API_BASE_DEV_URL: env.NEXT_PUBLIC_API_URL,
+  API_BASE_DEV_URL: "",
   API_SIGN_UP: "/auth/signup",
   API_LOGIN: "/auth/login",
   API_VERIFY_REGISTER: "/auth/verify-email-token",
