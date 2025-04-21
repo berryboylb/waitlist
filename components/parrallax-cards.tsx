@@ -29,43 +29,43 @@ const cardsData: CardData[] = [
     id: 2,
     title: "Buy Tickets with Ease",
     description:
-      "Forget the stress of complicated bookings—get your tickets securely and instantly from anywhere at any time.",
+      "Forget the stress of complicated bookings—get your tickets securely and instantly from anywhere, at any time. Ticketeur makes your ticket-buying experience smooth and worry-free.",
     image:
       "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
     label: "New",
   },
   {
     id: 3,
-    title: "Manage Your Events",
+    title: "Organize Events Seamlessly",
     description:
-      "Create, promote, and manage your events with powerful tools designed for organizers of all sizes.",
+      "Whether you’re planning a small gathering or a major event, Ticketeur helps you set everything up effortlessly. Manage your event details, attendees, and ticket sales smoothly—all in one place",
     image:
       "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800",
     label: "Popular",
   },
   {
     id: 4,
-    title: "Discover Local Events",
+    title: "Explore Local Events",
     description:
-      "Find exciting events happening near you with personalized recommendations based on your interests.",
+      "Never miss out on what's happening near you. Ticketeur shows you the most exciting local events, curated specifically based on your interests, location, and preferences.",
     image:
       "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
     label: "Trending",
   },
   {
     id: 5,
-    title: "Manage Your Events",
+    title: "Personalized Recommendations",
     description:
-      "Create, promote, and manage your events with powerful tools designed for organizers of all sizes.",
+      "We understand everyone’s tastes are unique. That’s why Ticketeur recommends events tailored specifically for you, ensuring you always find something you'll love.",
     image:
       "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800",
     label: "Popular",
   },
   {
     id: 6,
-    title: "Seamless Check-in Experience",
+    title: "Secure Payments & Easy Check-ins",
     description:
-      "Skip the lines with digital tickets and contactless check-in for a smooth entry to all your favorite events.",
+      "Your security and convenience matter. Ticketeur provides safe and trusted payment options, and helps you easily check into events without any hassle.",
     image:
       "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
     label: "Premium",

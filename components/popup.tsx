@@ -15,6 +15,8 @@ import { emailSchema } from "@/validator";
 import { useAddToList } from "@/hooks/useAddToList";
 import { Loader2 } from "lucide-react";
 import { useState } from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 export function Popup() {
   const [email, setEmail] = useState("");
@@ -30,18 +32,22 @@ export function Popup() {
         email,
       });
       await add.mutateAsync({ email });
+      setEmail("");
       //   toast("Successfully Added Email");
     } catch (error) {
-      if (error instanceof Error) {
-        toast(error.message);
-      }
+      // if (error instanceof Error) {
+      //   toast(error.message);
+      // }
       if (error instanceof z.ZodError) {
         console.log("Validation failed:", error.errors);
         toast(error.errors.join(", "));
+      }else{
+        toast((error as any)?.message);
       }
+      
     }
     console.log("Email submitted:", email);
-    setEmail("");
+
     // Show success message or toast
   };
   return (
@@ -61,8 +67,8 @@ export function Popup() {
                 Congratulations!
               </DialogTitle>
               <DialogDescription className="text-base lg:text-lg text-center text-black  max-w-xl mx-auto font-[family-name:var(--font-transforma-sans)]">
-                You&apos;re officially on the list! Check your inbox soon—we’ll send
-                you a confirmation email with more details shortly.
+                You&apos;re officially on the list! Check your inbox soon—we’ll
+                send you a confirmation email with more details shortly.
               </DialogDescription>
             </>
           ) : (
@@ -77,7 +83,23 @@ export function Popup() {
             </>
           )}
         </DialogHeader>
-        <Image src={Gift} alt={Gift} className="mx-auto mt-5 z-5" />
+        {add.isSuccess ? (
+          <>
+            <div className=" max-h-[200px] lg:max-h-[300px] flex justify-center items-center ">
+              <DotLottieReact
+                src="https://lottie.host/8f04312f-aea4-4369-9d33-fb53e47dd5ff/iiKxA9WjFg.lottie"
+                loop
+                autoplay
+              />
+            </div>
+          </>
+        ) : (
+          <>
+            {" "}
+            <Image src={Gift} alt={Gift} className="mx-auto mt-5 z-5" />
+          </>
+        )}
+
         {add.isSuccess ? (
           <>
             <Button
