@@ -114,6 +114,7 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
   },
+  metadataBase: new URL(siteConfig.url),
   description: siteConfig.description,
   keywords: siteConfig.keywords,
   authors: [
@@ -133,8 +134,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: `${siteConfig.url}/og-image.png`,
-        width: 1200,
-        height: 630,
+        width: 121.15,
+        height: 36.32,
         alt: siteConfig.description,
       },
     ],
