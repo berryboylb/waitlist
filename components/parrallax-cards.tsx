@@ -67,7 +67,7 @@ const cardsData: CardData[] = [
     description:
       "Your security and convenience matter. Ticketeur provides safe and trusted payment options, and helps you easily check into events without any hassle.",
     image:
-      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-1628527304948-06157ee3c8a6?auto=format&fit=crop&w=800",
     label: "Premium",
   },
 ];
