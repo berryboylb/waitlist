@@ -86,7 +86,7 @@ const NewsletterSection = () => {
               </a> */}
               <a
                 target="_blank"
-                href="https://www.instagram.com/ticketeur"
+                href="https://www.instagram.com/get_ticketeur"
                 className="text-black hover:text-primary transition-colors flex gap-4 items-center font-[family-name:var(--font-transforma-sans)]"
               >
                 <LuInstagram size={20} /> <span>Instagram</span>
