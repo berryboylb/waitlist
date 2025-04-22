@@ -40,7 +40,7 @@ const cardsData: CardData[] = [
     description:
       "Whether you’re planning a small gathering or a major event, Ticketeur helps you set everything up effortlessly. Manage your event details, attendees, and ticket sales smoothly—all in one place",
     image:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800",
+      "https://plus.unsplash.com/premium_photo-1723471212652-06d5aea09548?auto=format&fit=crop&w=800",
     label: "Popular",
   },
   {
