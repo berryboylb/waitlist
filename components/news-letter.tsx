@@ -85,12 +85,14 @@ const NewsletterSection = () => {
                 <FaFacebook size={20} /> <span>Facebook</span>
               </a> */}
               <a
+                target="_blank"
                 href="https://www.instagram.com/ticketeur"
                 className="text-black hover:text-primary transition-colors flex gap-4 items-center font-[family-name:var(--font-transforma-sans)]"
               >
                 <LuInstagram size={20} /> <span>Instagram</span>
               </a>
               <a
+                target="_blank"
                 href="https://x.com/get_ticketeur"
                 className="text-black hover:text-primary transition-colors flex gap-4 items-center font-[family-name:var(--font-transforma-sans)]"
               >
