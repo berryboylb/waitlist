@@ -49,7 +49,7 @@ const cardsData: CardData[] = [
     description:
       "Never miss out on what's happening near you. Ticketeur shows you the most exciting local events, curated specifically based on your interests, location, and preferences.",
     image:
-      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800",
     label: "Trending",
   },
   {
@@ -58,7 +58,7 @@ const cardsData: CardData[] = [
     description:
       "We understand everyone’s tastes are unique. That’s why Ticketeur recommends events tailored specifically for you, ensuring you always find something you'll love.",
     image:
-      "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800",
+      "https://images.unsplash.com/photo-1603811601606-1252ac37d097?auto=format&fit=crop&w=800",
     label: "Popular",
   },
   {
