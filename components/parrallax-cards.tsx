@@ -31,7 +31,7 @@ const cardsData: CardData[] = [
     description:
       "Forget the stress of complicated bookings—get your tickets securely and instantly from anywhere, at any time. Ticketeur makes your ticket-buying experience smooth and worry-free.",
     image:
-      "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800",
+      "https://plus.unsplash.com/premium_photo-1718674394245-9f270c5fd2b3",
     label: "New",
   },
   {

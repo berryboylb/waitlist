@@ -3,6 +3,16 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 
 const images = [
+  "https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=800",
+  "https://images.unsplash.com/photo-1515169067868-5387ec356754?auto=format&fit=crop&w=800",
+  "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800",
+  "https://images.unsplash.com/photo-1731475760849-459c36ed6bca?auto=format&fit=crop&w=800",
+  "https://plus.unsplash.com/premium_photo-1661306543132-93937b4c242e?auto=format&fit=crop&w=800",
+  "https://images.unsplash.com/photo-1642784353782-91bfdd65920c?auto=format&fit=crop&w=800",
+  "https://images.unsplash.com/photo-1574153288178-4596750d7efa?auto=format&fit=crop&w=800",
+];
+
+const bottomImages = [
   "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800",
   "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?auto=format&fit=crop&w=800",
   "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800",
@@ -116,7 +126,7 @@ const CarouselSection = () => {
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         <div className="flex gap-4 min-w-max">
-          {images.map((img, i) => (
+          {bottomImages.map((img, i) => (
             <div
               key={`bottom-${i}`}
               className="h-64 w-80 rounded-xl overflow-hidden flex-shrink-0"
@@ -133,7 +143,7 @@ const CarouselSection = () => {
           ))}
         </div>
         <div className="flex gap-4 min-w-max">
-          {images.map((img, i) => (
+          {bottomImages.map((img, i) => (
             <div
               key={`bottom-dup-${i}`}
               className="h-64 w-80 rounded-xl overflow-hidden flex-shrink-0"
