@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import { Button } from "./ui/button";
 
 interface CardData {
   id: number;
@@ -30,8 +31,7 @@ const cardsData: CardData[] = [
     title: "Buy Tickets with Ease",
     description:
       "Forget the stress of complicated bookings—get your tickets securely and instantly from anywhere, at any time. Ticketeur makes your ticket-buying experience smooth and worry-free.",
-    image:
-      "https://plus.unsplash.com/premium_photo-1718674394245-9f270c5fd2b3",
+    image: "https://plus.unsplash.com/premium_photo-1718674394245-9f270c5fd2b3",
     label: "New",
   },
   {
@@ -174,6 +174,10 @@ const ParallaxCards = () => {
                   effortlessly buying tickets and smoothly organizing events, to
                   discovering exciting local happenings.
                 </p>
+
+                <Button className="rounded-4xl font-[family-name:var(--font-transforma-sans)] text-xs font-bold text-white p-2 lg:p-5 hover:animate-pulse mt-5">
+                  Coming Soon
+                </Button>
               </div>
             </div>
 
@@ -189,24 +193,24 @@ const ParallaxCards = () => {
                 const yOffset = isBehindActive
                   ? (index - activeIndex) * 7
                   : isBeforeActive
-                  ? -100
-                  : 0;
+                    ? -100
+                    : 0;
                 const xOffset = isBehindActive ? (index - activeIndex) * 2 : 0;
                 const rotation = isBehindActive
                   ? (index - activeIndex) * 3
                   : isBeforeActive
-                  ? -8
-                  : 0;
+                    ? -8
+                    : 0;
                 const scale = isBehindActive
                   ? Math.max(0.95 - (index - activeIndex) * 0.05, 0.8)
                   : isBeforeActive
-                  ? 0.95
-                  : 1;
+                    ? 0.95
+                    : 1;
                 const opacity = isBehindActive
                   ? Math.max(0.8 - (index - activeIndex) * 0.2, 0)
                   : isBeforeActive
-                  ? 0
-                  : 1;
+                    ? 0
+                    : 1;
 
                 return (
                   <div

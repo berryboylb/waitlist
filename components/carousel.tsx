@@ -88,7 +88,7 @@ const CarouselSection = () => {
           {images.map((img, i) => (
             <div
               key={`top-${i}`}
-              className="h-64 w-80 rounded-xl overflow-hidden flex-shrink-0"
+              className="h-64 w-80 lg:h-85 lg:w-104 rounded-xl overflow-hidden flex-shrink-0"
             >
               <Image
                 height={100}
@@ -105,7 +105,7 @@ const CarouselSection = () => {
           {images.map((img, i) => (
             <div
               key={`top-dup-${i}`}
-              className="h-64 w-80 rounded-xl overflow-hidden flex-shrink-0"
+              className="h-64 w-80 lg:h-85 lg:w-104 rounded-xl overflow-hidden flex-shrink-0"
             >
               <Image
                 height={100}
@@ -129,7 +129,7 @@ const CarouselSection = () => {
           {bottomImages.map((img, i) => (
             <div
               key={`bottom-${i}`}
-              className="h-64 w-80 rounded-xl overflow-hidden flex-shrink-0"
+              className="h-64 w-80 lg:h-85 lg:w-104 rounded-xl overflow-hidden flex-shrink-0"
             >
               <Image
                 height={100}
@@ -146,7 +146,7 @@ const CarouselSection = () => {
           {bottomImages.map((img, i) => (
             <div
               key={`bottom-dup-${i}`}
-              className="h-64 w-80 rounded-xl overflow-hidden flex-shrink-0"
+              className="h-64 w-80 lg:h-85 lg:w-104 rounded-xl overflow-hidden flex-shrink-0"
             >
               <Image
                 height={100}
