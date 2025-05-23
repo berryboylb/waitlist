@@ -175,7 +175,10 @@ const ParallaxCards = () => {
                   discovering exciting local happenings.
                 </p>
 
-                <Button className="rounded-4xl bg-[#1A0D42] font-[family-name:var(--font-transforma-sans)] text-xs font-bold text-white p-2 lg:p-5 hover:animate-pulse mt-5">
+                <Button
+                  disabled
+                  className="rounded-4xl bg-[#1A0D42] disabled:opacity-100 font-[family-name:var(--font-transforma-sans)] text-xs font-bold text-white p-2 lg:p-5 hover:animate-pulse mt-5"
+                >
                   Coming Soon
                 </Button>
               </div>
