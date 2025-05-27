@@ -86,14 +86,14 @@ const NewsletterSection = () => {
               </a> */}
               <a
                 target="_blank"
-                href="https://www.instagram.com/get_ticketeur"
+                href="https://www.instagram.com/ticketeur?igsh=dWttNnNkbDMzNWY3&utm_source=qr"
                 className="text-black hover:text-primary transition-colors flex gap-4 items-center font-[family-name:var(--font-transforma-sans)]"
               >
                 <LuInstagram size={20} /> <span>Instagram</span>
               </a>
               <a
                 target="_blank"
-                href="https://x.com/get_ticketeur"
+                href="https://x.com/ticketeur_?s=21&t=CwSCa3QnsIWHWk-WcWOiLw"
                 className="text-black hover:text-primary transition-colors flex gap-4 items-center font-[family-name:var(--font-transforma-sans)]"
               >
                 <FaXTwitter size={20} /> <span>X</span>
