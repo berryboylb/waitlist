@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 // import { v4 as uuidv4 } from "uuid";
 import { Mailer } from "@/lib/email";
 import { WaitList } from "@/models";
+/* eslint-disable  @typescript-eslint/no-explicit-any */
 
 export async function POST(req: NextRequest) {
   try {
@@ -59,8 +60,12 @@ export async function POST(req: NextRequest) {
 
     // console.log(">>> resend response", response);
     return NextResponse.json(response, { status: 200 });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Proxy Error:", error);
-    return NextResponse.json(error, { status: 500 });
+    const message =
+      error?.message ??
+      error?.toString?.() ??
+      "Something went wrong on the server";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
