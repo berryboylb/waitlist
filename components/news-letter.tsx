@@ -26,12 +26,12 @@ const NewsletterSection = () => {
       await add.mutateAsync({ email });
       toast("Successfully Added Email");
     } catch (error) {
-      if (error instanceof Error) {
-        toast(error.message);
-      }
       if (error instanceof z.ZodError) {
-        console.log("Validation failed:", error.errors);
-        toast(error.errors.join(", "));
+        toast.error(error.errors.map((e) => e.message).join(", "));
+      } else if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("An unexpected error occurred.");
       }
     }
     console.log("Email submitted:", email);
