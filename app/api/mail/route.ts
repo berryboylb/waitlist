@@ -9,19 +9,21 @@ export async function POST(req: NextRequest) {
     const email = body?.email as string;
 
     if (!email) {
-      return NextResponse.json(
-        { message: "Email is required" },
-        { status: 400 }
-      );
+      throw new Error("Email is required");
+      // return NextResponse.json(
+      //   { message: "Email is required" },
+      //   { status: 400 }
+      // );
     }
 
     const count = await WaitList.countDocuments({ email });
 
     if (count > 0) {
-      return NextResponse.json(
-        { message: "Email has been previously used" },
-        { status: 400 }
-      );
+      throw new Error("Email has been previously used");
+      // return NextResponse.json(
+      //   { message: "Email has been previously used" },
+      //   { status: 400 }
+      // );
     }
 
     const result = await WaitList.create({

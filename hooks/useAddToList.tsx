@@ -3,18 +3,23 @@ import { useMutation } from "@tanstack/react-query";
 export const useAddToList = () => {
   const mutation = useMutation({
     mutationFn: async ({ email }: { email: string }) => {
-      const res = await fetch("/api/mail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
+      try {
+        const res = await fetch("/api/mail", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        });
+        return res?.json();
+      } catch (error) {
+        console.log(">>err<<", error);
+        throw error;
+      }
 
       // if (!res.ok) {
       //   throw new Error(`Failed to add data: ${res.statusText}`);
       // }
-      return res?.json();
     },
     onError: (error) => {
       console.error("[useAddToList]:", error);
