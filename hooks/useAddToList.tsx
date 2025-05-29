@@ -11,11 +11,10 @@ export const useAddToList = () => {
         body: JSON.stringify({ email }),
       });
 
-      if (!res.ok) {
-        throw new Error(`Failed to add data: ${res.statusText}`);
-      }
-
-      return res.json();
+      // if (!res.ok) {
+      //   throw new Error(`Failed to add data: ${res.statusText}`);
+      // }
+      return res?.json();
     },
     onError: (error) => {
       console.error("[useAddToList]:", error);
