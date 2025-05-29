@@ -25,45 +25,28 @@ export async function POST(req: NextRequest) {
       email,
     });
 
-    console.log(">>>", result);
-
-    // const mailBody = {
-    //   id: uuidv4(),
-    //   email,
-    //   submittedAt: new Date().toISOString(),
-    // };
-
-    // const res = await fetch("https://sheetdb.io/api/v1/2l1eaegq5a0l6", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(mailBody),
-    // });
-
-    // if (!res.ok) {
-    //   throw new Error(`Failed to add data: ${res.statusText}`);
-    // }
-
-    // const data = await res.json();
+    console.log(">>>result", result);
 
     const mailer = new Mailer();
+    console.log(">>>mailer", mailer);
     const response = await mailer.sendEmail({
-      from: "onboarding@resend.dev",
+      from: "Ticketueur <noreply@mail.useticketeur.com>",
       to: email,
       subject: "Thank You For joining our wait list",
       template: "wait-list",
       context: {
         email,
       },
-      cc: "support@ticketeur.com",
+      cc: "support@useticketeur.com",
     });
 
+    console.log(">>>response", response);
+
     if (response.error) {
-      return NextResponse.json({ error: response.error.message }, { status: 400 });
+      return NextResponse.json(response, { status: 400 });
     }
 
-    console.log(">>> resend response", response);
+    // console.log(">>> resend response", response);
     return NextResponse.json(response, { status: 200 });
   } catch (error) {
     console.error("Proxy Error:", error);

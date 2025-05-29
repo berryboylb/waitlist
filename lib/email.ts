@@ -43,15 +43,16 @@ export class Mailer {
    * @returns Response from Resend API
    */
   async sendEmail(options: MailOptions) {
-    const { to, subject, template, context, ...restOptions } = options;
+    const { to, subject, template, context, from, ...restOptions } = options;
 
     // Compile the template
     const html = await this.compileTemplate(template, context);
+    console.log(html);
 
     // Send the email
     return this.resend.emails.send({
       ...restOptions,
-      from: restOptions.from || "noreply@yourdomain.com", // You can set a default
+      from, // You can set a default
       to,
       subject,
       html,
