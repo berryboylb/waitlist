@@ -38,6 +38,9 @@ export function Popup() {
       // if (error instanceof Error) {
       //   toast(error.message);
       // }
+
+      console.log(">>>>err<><<<",error);
+      
       if (error instanceof z.ZodError) {
         console.log("Validation failed:", error.errors);
         toast(error.errors.join(", "));
