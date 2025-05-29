@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 // import { v4 as uuidv4 } from "uuid";
 import { Mailer } from "@/lib/email";
 import { WaitList } from "@/models";
+import { connectToDatabase } from "@/lib/db";
 /* eslint-disable  @typescript-eslint/no-explicit-any */
 
 export async function POST(req: NextRequest) {
@@ -12,6 +13,8 @@ export async function POST(req: NextRequest) {
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
+
+    await connectToDatabase();
 
     const count = await WaitList.countDocuments({ email });
 
