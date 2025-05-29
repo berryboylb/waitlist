@@ -9,10 +9,7 @@ export async function POST(req: NextRequest) {
     const email = body?.email as string;
 
     if (!email) {
-      return NextResponse.json(
-        { error: "Email is required" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Email is required" }, { status: 400 });
     }
 
     const count = await WaitList.countDocuments({ email });
@@ -24,9 +21,20 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const result = await WaitList.create({
-      email,
-    });
+    const result = await WaitList.findOneAndUpdate(
+      {
+        email,
+      },
+      {
+        $set: {
+          email,
+        },
+      },
+      {
+        new: true,
+        upsert: true,
+      }
+    );
 
     console.log(">>>result", result);
 
