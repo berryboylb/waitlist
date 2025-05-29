@@ -28,30 +28,20 @@ export function Popup() {
     // In a real app, this would submit the email to a backend
 
     try {
-      emailSchema.parse({
-        email,
-      });
+      emailSchema.parse({ email });
       await add.mutateAsync({ email });
       setEmail("");
-      //   toast("Successfully Added Email");
+      toast.success("Successfully added to wait list");
     } catch (error) {
-      // if (error instanceof Error) {
-      //   toast(error.message);
-      // }
-
-      console.log(">>>>err<><<<",error);
-      
       if (error instanceof z.ZodError) {
-        console.log("Validation failed:", error.errors);
-        toast(error.errors.join(", "));
+        toast.error(error.errors.map((e) => e.message).join(", "));
       } else if (error instanceof Error) {
-        toast(error?.message);
+        toast.error(error.message);
       } else {
-        toast((error as any)?.error);
+        toast.error("An unexpected error occurred.");
       }
     }
     console.log("Email submitted:", email);
-
     // Show success message or toast
   };
   return (
