@@ -9,14 +9,17 @@ export async function POST(req: NextRequest) {
     const email = body?.email as string;
 
     if (!email) {
-      return NextResponse.json({ error: "Email is required" }, { status: 400 });
+      return NextResponse.json(
+        { message: "Email is required" },
+        { status: 400 }
+      );
     }
 
     const count = await WaitList.countDocuments({ email });
 
     if (count > 0) {
       return NextResponse.json(
-        { error: "Email has been previously used" },
+        { message: "Email has been previously used" },
         { status: 400 }
       );
     }
@@ -50,9 +53,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json(response, { status: 200 });
   } catch (error) {
     console.error("Proxy Error:", error);
-    return NextResponse.json(
-      error,
-      { status: 500 }
-    );
+    return NextResponse.json(error, { status: 500 });
   }
 }

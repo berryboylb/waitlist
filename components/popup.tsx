@@ -41,10 +41,11 @@ export function Popup() {
       if (error instanceof z.ZodError) {
         console.log("Validation failed:", error.errors);
         toast(error.errors.join(", "));
-      }else{
-        toast((error as any)?.message);
+      } else if (error instanceof Error) {
+        toast(error?.message);
+      } else {
+        toast((error as any)?.error);
       }
-      
     }
     console.log("Email submitted:", email);
 
