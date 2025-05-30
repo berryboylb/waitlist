@@ -45,7 +45,7 @@ export async function POST(req: NextRequest) {
     const mailer = new Mailer();
     console.log(">>>mailer", mailer);
     const response = await mailer.sendEmail({
-      from: "Ticketueur <noreply@mail.useticketeur.com>",
+      from: "Ticketeur <noreply@mail.useticketeur.com>",
       to: email,
       subject: "Thank You For joining our wait list",
       template: "wait-list",
